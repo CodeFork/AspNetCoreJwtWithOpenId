@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.0",
-    "signature": "964cbd83dfa1278b12e69c8dc728e9d9963d489c"
+    "signature": "c12f8e2d866d271d455c7247ba5a6c7852fb81d7"
   },
   "compilationOptions": {
     "defines": [
@@ -29,7 +29,7 @@
           "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0",
           "Microsoft.AspNetCore.Server.Kestrel": "1.0.0",
           "Microsoft.AspNetCore.StaticFiles": "1.0.0",
-          "Microsoft.EntityFrameworkCore.SqlServer": "1.0.0",
+          "Microsoft.EntityFrameworkCore.Sqlite": "1.0.0",
           "Microsoft.Extensions.Configuration.CommandLine": "1.0.0",
           "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.0.0",
           "Microsoft.Extensions.Configuration.Json": "1.0.0",
@@ -821,6 +821,26 @@
           "lib/netstandard1.3/Microsoft.AspNetCore.WebUtilities.dll": {}
         }
       },
+      "Microsoft.Data.Sqlite/1.0.0": {
+        "dependencies": {
+          "SQLite": "3.12.2",
+          "System.AppContext": "4.1.0",
+          "System.Data.Common": "4.1.0",
+          "System.Diagnostics.Debug": "4.0.11",
+          "System.Linq": "4.1.0",
+          "System.Reflection.Extensions": "4.0.1",
+          "System.Resources.ResourceManager": "4.0.1",
+          "System.Runtime.Extensions": "4.1.0",
+          "System.Runtime.InteropServices": "4.1.0",
+          "System.Text.Encoding": "4.0.11"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.Data.Sqlite.dll": {}
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.Data.Sqlite.dll": {}
+        }
+      },
       "Microsoft.DotNet.Cli.Utils/1.0.0-preview2-003121": {
         "dependencies": {
           "Microsoft.DotNet.ProjectModel": "1.0.0-rc3-003121",
@@ -954,17 +974,17 @@
           "lib/netstandard1.3/Microsoft.EntityFrameworkCore.Relational.Design.dll": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.SqlServer/1.0.0": {
+      "Microsoft.EntityFrameworkCore.Sqlite/1.0.0": {
         "dependencies": {
+          "Microsoft.Data.Sqlite": "1.0.0",
           "Microsoft.EntityFrameworkCore.Relational": "1.0.0",
-          "System.Data.SqlClient": "4.1.0",
-          "System.Threading.Thread": "4.0.0"
+          "System.IO.FileSystem": "4.0.1"
         },
         "runtime": {
-          "lib/netstandard1.3/Microsoft.EntityFrameworkCore.SqlServer.dll": {}
+          "lib/netstandard1.3/Microsoft.EntityFrameworkCore.Sqlite.dll": {}
         },
         "compile": {
-          "lib/netstandard1.3/Microsoft.EntityFrameworkCore.SqlServer.dll": {}
+          "lib/netstandard1.3/Microsoft.EntityFrameworkCore.Sqlite.dll": {}
         }
       },
       "Microsoft.EntityFrameworkCore.Tools/1.0.0-preview2-final": {
@@ -1757,23 +1777,26 @@
           "lib/netstandard1.0/Remotion.Linq.dll": {}
         }
       },
-      "runtime.native.System.Data.SqlClient.sni/4.0.0": {
+      "SQLite/3.12.2": {
         "dependencies": {
-          "runtime.win7-x64.runtime.native.System.Data.SqlClient.sni": "4.0.1",
-          "runtime.win7-x86.runtime.native.System.Data.SqlClient.sni": "4.0.1"
+          "SQLite.Native": "3.12.2"
         }
       },
-      "runtime.win7-x64.runtime.native.System.Data.SqlClient.sni/4.0.1": {
+      "SQLite.Native/3.12.2": {
         "runtimeTargets": {
-          "runtimes/win7-x64/native/sni.dll": {
+          "runtimes/linux-x64/native/libsqlite3.so": {
+            "rid": "linux-x64",
+            "assetType": "native"
+          },
+          "runtimes/osx-x64/native/libsqlite3.dylib": {
+            "rid": "osx-x64",
+            "assetType": "native"
+          },
+          "runtimes/win7-x64/native/sqlite3.dll": {
             "rid": "win7-x64",
             "assetType": "native"
-          }
-        }
-      },
-      "runtime.win7-x86.runtime.native.System.Data.SqlClient.sni/4.0.1": {
-        "runtimeTargets": {
-          "runtimes/win7-x86/native/sni.dll": {
+          },
+          "runtimes/win7-x86/native/sqlite3.dll": {
             "rid": "win7-x86",
             "assetType": "native"
           }
@@ -1868,60 +1891,6 @@
           "ref/netstandard1.2/System.Data.Common.dll": {}
         }
       },
-      "System.Data.SqlClient/4.1.0": {
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.0.1",
-          "Microsoft.Win32.Primitives": "4.0.1",
-          "System.Collections": "4.0.11",
-          "System.Collections.Concurrent": "4.0.12",
-          "System.Data.Common": "4.1.0",
-          "System.Diagnostics.Debug": "4.0.11",
-          "System.Diagnostics.DiagnosticSource": "4.0.0",
-          "System.Globalization": "4.0.11",
-          "System.IO": "4.1.0",
-          "System.IO.Pipes": "4.0.0",
-          "System.Linq": "4.1.0",
-          "System.Net.NameResolution": "4.0.0",
-          "System.Net.Primitives": "4.0.11",
-          "System.Net.Security": "4.0.0",
-          "System.Net.Sockets": "4.1.0",
-          "System.Reflection": "4.1.0",
-          "System.Reflection.TypeExtensions": "4.1.0",
-          "System.Resources.ResourceManager": "4.0.1",
-          "System.Runtime": "4.1.0",
-          "System.Runtime.Extensions": "4.1.0",
-          "System.Runtime.Handles": "4.0.1",
-          "System.Runtime.InteropServices": "4.1.0",
-          "System.Runtime.InteropServices.RuntimeInformation": "4.0.0",
-          "System.Security.Cryptography.X509Certificates": "4.1.0",
-          "System.Security.Principal": "4.0.1",
-          "System.Security.Principal.Windows": "4.0.0",
-          "System.Text.Encoding": "4.0.11",
-          "System.Text.Encoding.CodePages": "4.0.1",
-          "System.Text.Encoding.Extensions": "4.0.11",
-          "System.Text.RegularExpressions": "4.1.0",
-          "System.Threading": "4.0.11",
-          "System.Threading.Tasks": "4.0.11",
-          "System.Threading.Thread": "4.0.0",
-          "System.Threading.ThreadPool": "4.0.10",
-          "System.Threading.Timer": "4.0.1",
-          "System.Xml.ReaderWriter": "4.0.11",
-          "runtime.native.System.Data.SqlClient.sni": "4.0.0"
-        },
-        "runtimeTargets": {
-          "runtimes/unix/lib/netstandard1.3/System.Data.SqlClient.dll": {
-            "rid": "unix",
-            "assetType": "runtime"
-          },
-          "runtimes/win/lib/netstandard1.3/System.Data.SqlClient.dll": {
-            "rid": "win",
-            "assetType": "runtime"
-          }
-        },
-        "compile": {
-          "ref/netstandard1.3/System.Data.SqlClient.dll": {}
-        }
-      },
       "System.Diagnostics.Contracts/4.0.1": {
         "dependencies": {
           "System.Runtime": "4.1.0"
@@ -1960,38 +1929,6 @@
         },
         "compile": {
           "lib/netstandard1.0/System.Interactive.Async.dll": {}
-        }
-      },
-      "System.IO.Pipes/4.0.0": {
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.0.1",
-          "System.Diagnostics.Debug": "4.0.11",
-          "System.IO": "4.1.0",
-          "System.IO.FileSystem.Primitives": "4.0.1",
-          "System.Net.Primitives": "4.0.11",
-          "System.Net.Sockets": "4.1.0",
-          "System.Reflection": "4.1.0",
-          "System.Resources.ResourceManager": "4.0.1",
-          "System.Runtime": "4.1.0",
-          "System.Runtime.Extensions": "4.1.0",
-          "System.Runtime.Handles": "4.0.1",
-          "System.Runtime.InteropServices": "4.1.0",
-          "System.Security.Principal": "4.0.1",
-          "System.Text.Encoding": "4.0.11",
-          "System.Threading": "4.0.11",
-          "System.Threading.Overlapped": "4.0.1",
-          "System.Threading.Tasks": "4.0.11",
-          "runtime.native.System": "4.0.0"
-        },
-        "runtimeTargets": {
-          "runtimes/unix/lib/netstandard1.3/System.IO.Pipes.dll": {
-            "rid": "unix",
-            "assetType": "runtime"
-          },
-          "runtimes/win/lib/netstandard1.3/System.IO.Pipes.dll": {
-            "rid": "win",
-            "assetType": "runtime"
-          }
         }
       },
       "System.Net.WebSockets/4.0.0": {
@@ -3919,6 +3856,11 @@
       "serviceable": true,
       "sha512": "sha512-D0licSnS1JgqQ/gYlN41wXbeYG3dFIdjY781YzMHZ5gBB7kczacshW+H6plZkXRr/cCnAJWGa31o1R8c5GEy/A=="
     },
+    "Microsoft.Data.Sqlite/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dezlCGK9zVrPNfoX1SL50GmWDdRQNcV1SBy3wuCn/a0g7Gc26PyvlA4BKapjnCK5N8LSQ2+1PdW2imiRr+YvxA=="
+    },
     "Microsoft.DotNet.Cli.Utils/1.0.0-preview2-003121": {
       "type": "package",
       "serviceable": true,
@@ -3959,10 +3901,10 @@
       "serviceable": true,
       "sha512": "sha512-pw4EmGTp5U645is0Lyf0C6yU1uQGHVIZiRyxlDNNrRllL0ZjSFKTShv9qbE+fBpvvvArNp2HhDmP7d6vJAt0Dw=="
     },
-    "Microsoft.EntityFrameworkCore.SqlServer/1.0.0": {
+    "Microsoft.EntityFrameworkCore.Sqlite/1.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-zLPrmmZ2b4jM3Hezf4dP2oIVREeXlXfcyNDX4mBZ6xcW+QauxyDpzrB86mnEF1quBdkpbZhv7T+ZbS9XS6Hqdg=="
+      "sha512": "sha512-GF5xfn90zVKbnCdNrjeH4j1IaAQ7FsHCWkTrdUKISzrPxG3LIizJaU2iu8YMfNhMYd5N1Y7R7SxF2dBh+5A+Ew=="
     },
     "Microsoft.EntityFrameworkCore.Tools/1.0.0-preview2-final": {
       "type": "package",
@@ -4229,20 +4171,15 @@
       "serviceable": true,
       "sha512": "sha512-IJn0BqkvwEDpP+2qjvci7n4/a9f7DhKESLWb2/uG4xQh3rTkGTBUz69bI4IivCoKkTFAqjXxYDZw2K/npohjsw=="
     },
-    "runtime.native.System.Data.SqlClient.sni/4.0.0": {
+    "SQLite/3.12.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-DcMVtYwugo1LOc9MVchInxlLNoFe/+21MsEQU9yIZX561chzxDlFDWowWF+Kc262PyD3eLkDab1JyJrs73Qtkg=="
+      "sha512": "sha512-XYNQJt2eFqGluWP+fDaiNrV1v3kA+VsU2ygUjLx7zqzhIZKlAjSYMZLldmbGNnlNC5rKR+0LTrN0IA9dZkDyFw=="
     },
-    "runtime.win7-x64.runtime.native.System.Data.SqlClient.sni/4.0.1": {
+    "SQLite.Native/3.12.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-My20HZqJbDS4rWmdOcJ3TPf9iX6M/sTF2nBSUHBvfWp1iNip3eMS+K65oQgsLRxX6h21ic3YED06c2ye2sL7FQ=="
-    },
-    "runtime.win7-x86.runtime.native.System.Data.SqlClient.sni/4.0.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-ykiYCf/0hIc0xm+g6bVX8nw9St5Ool+r4US+B+56Lv/GFnDG5G9BK4n7WkrwEpuWV3XjMn38oHgHOnNMzBVNKA=="
+      "sha512": "sha512-/5BdEFTaCziE6K5OG0bjSUhPo+LRmFcmyriFWEZNSuHaiqSp69sVngTb/Yo8mH6JykMA79BFdCBLMW+2E3pnuA=="
     },
     "System.Collections.NonGeneric/4.0.1": {
       "type": "package",
@@ -4269,11 +4206,6 @@
       "serviceable": true,
       "sha512": "sha512-epU8jeTe7aE7RqGHq9rZ8b0Q4Ah7DgubzHQblgZMSqgW1saW868WmooSyC5ywf8upLBkcVLDu93W9GPWUYsU2Q=="
     },
-    "System.Data.SqlClient/4.1.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-yqMZgzzKHdG84QmA/PPZUORaoisfvztvFqyPs7dPafJhNxlS7STf9OMCFrP/tITQCqImkm1+X4d2oiWOT2oTKg=="
-    },
     "System.Diagnostics.Contracts/4.0.1": {
       "type": "package",
       "serviceable": true,
@@ -4288,11 +4220,6 @@
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-UEM+WmG1Oq0bNbPx/E1jaIQ83QOrPfVDUyuYBtG6D6DpB77ytv9flPterMujumpHuoRjSc0ilSB8w41fQc05dw=="
-    },
-    "System.IO.Pipes/4.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-L9QVhk8hIEix5KNA0kW58Ha+Y1dNGqqqIhAaJkhcGCWeQzUmN0njzI7SG/XAazpMecboOdFFlH3pH/qbwXLJAg=="
     },
     "System.Net.WebSockets/4.0.0": {
       "type": "package",
